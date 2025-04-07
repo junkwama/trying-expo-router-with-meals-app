@@ -7,7 +7,6 @@ export default {
         "Delicious pasta recipes with a variety of sauces and ingredients.",
       image_url:
         "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#FFE5B4",
     },
     {
       id: 2,
@@ -15,15 +14,13 @@ export default {
       description: "Warm and hearty soups perfect for any season.",
       image_url:
         "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#D0F0C0",
-    },
+    }, 
     {
       id: 3,
       name: "Seafood",
       description: "Fresh and flavorful seafood dishes.",
       image_url:
         "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#C0E8F9",
     },
     {
       id: 4,
@@ -31,7 +28,6 @@ export default {
       description: "Tasty and nutritious meat-free meals.",
       image_url:
         "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#FFD6A5",
     },
     {
       id: 5,
@@ -39,7 +35,6 @@ export default {
       description: "Sweet treats to end your meal on a high note.",
       image_url:
         "https://images.unsplash.com/photo-1543255006-d6395b6f1171?q=80&w=500",
-      bg_color: "#CFFFE5",
     },
     {
       id: 6,
@@ -47,7 +42,6 @@ export default {
       description: "Fresh and healthy salad recipes.",
       image_url:
         "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#FADADD",
     },
     {
       id: 7,
@@ -55,7 +49,6 @@ export default {
       description: "Start your day with these hearty breakfast options.",
       image_url:
         "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#ffffff",
     },
     {
       id: 8,
@@ -63,15 +56,13 @@ export default {
       description: "Refreshing drinks to accompany any meal.",
       image_url:
         "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&w=500&q=80",
-      bg_color: "#FFF3B0",
     },
     {
       id: 9,
-      name: "Appetizers",
+      name: "Appetizzers",
       description: "Tasty starters to whet your appetite.",
       image_url:
         "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#FFCCCB",
     },
     {
       id: 10,
@@ -79,7 +70,6 @@ export default {
       description: "Smoky and flavorful grilled dishes.",
       image_url:
         "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      bg_color: "#a78a64",
     },
   ],
   meals: [

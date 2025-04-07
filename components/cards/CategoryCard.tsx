@@ -1,4 +1,3 @@
-import { LinearGradient } from "expo-linear-gradient";
 import { ViewProps } from "../Themed";
 import { Category } from "@/store/types";
 import {
@@ -6,21 +5,19 @@ import {
   Text,
   StyleSheet,
   Pressable,
-  ImageBackground,
-  ViewStyle,
   Image,
-  ImageBackgroundBase
 } from "react-native";
 import { useRouter } from "expo-router";
-import sizes from "@/constants/sizes";
+import MyIcon from "../ui/MyIcon";
+import Colors from "@/constants/Colors";
 
 
 
 interface categoryCardProps extends
   Omit<ViewProps, "id">,
-  Omit<Category, "description"> { };
+  Category { };
 
-export default ({ style, id, name, image_url, bg_color }: categoryCardProps) => {
+export default ({ style, id, name, description, image_url }: categoryCardProps) => {
 
   const router = useRouter();
   const opPress = () => {
@@ -32,49 +29,60 @@ export default ({ style, id, name, image_url, bg_color }: categoryCardProps) => 
       <Pressable
         onPress={opPress}
         style={styles.innerContainer}
-        android_ripple={{ color: bg_color }}
       >
-        <ImageBackground
+        <Image
           source={{ uri: image_url }}
           resizeMode="cover"
-          style={[styles.bgImg, { backgroundColor: bg_color }]}
-          imageStyle={{ marginStart: "20%" }}
-        >
-          <LinearGradient
-            colors={["transparent", bg_color]}
-            style={styles.innerContainer}
-          >
-            <Text style={styles.name}>{name}</Text>
-          </LinearGradient>
-        </ImageBackground>
+          style={styles.image}
+        />
+       <View style={styles.textBlock}>
+          <Text style={styles.name}>{name}</Text>
+          <Text numberOfLines={2} style={styles.description}>{description}</Text>
+          <Text style={styles.detailBtn}>
+            Details <MyIcon 
+              size={12}
+              name="chevron-forward-outline"
+              style={{ marginStart: 4}}
+            />
+          </Text>
+       </View>
       </Pressable>
-    </View >
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   outerContainer: {
-    height: 150
+    marginBottom: 12
   },
   innerContainer: {
-    elevation: 5,
-    shadowColor: "black",
-    shadowOffset: {
-      height: 1,
-      width: 1,
-    },
-    shadowRadius: 3,
-    shadowOpacity: 0.3,
-    // ---
     flex: 1,
-    borderRadius: 16,
-    overflow: "hidden"
+    overflow: "hidden",
+    flexDirection: "row",
   },
-  bgImg: {
-    flex: 1
+  image: {
+    width: 90,
+    height: 90,
+    borderRadius: "100%",
+  },
+  textBlock:{
+    flex: 1,
+    justifyContent: "center",
+    paddingStart: 20
   },
   name: {
     fontWeight: "bold",
     fontSize: 18
+  },
+  description: {
+    fontSize: 13,
+    marginBottom: 6,
+    marginTop: 2
+  },
+  detailBtn: {
+    color: Colors.primary,
+    fontSize: 12,
+    display: "flex",
+    alignItems: "flex-end"
   }
 });

@@ -18,14 +18,12 @@ export default ({ style, onLike, onShare, size = 24 }: LikeShareBtnsTtype) => {
         onPress={onLike}
         size={size}
         style={[styles.icon, { marginEnd: 8 }]}
-        color={Colors.primary}
       />
       <MyIcon
         name="heart-outline"
         onPress={onShare}
         size={size}
         style={styles.icon}
-        color={Colors.primary}
       />
     </View>
   );

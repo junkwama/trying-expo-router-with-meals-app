@@ -4,7 +4,6 @@ import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useContext, useEffect } from "react";
 import sizes from "@/constants/sizes";
-import Colors from "@/constants/Colors";
 
 const MealsOverviewRoute = () => {
 
@@ -24,8 +23,7 @@ const MealsOverviewRoute = () => {
         paddingVertical: 6,
         paddingHorizontal: 32,
         fontSize: 18,
-        borderRadius: 18,
-        color: Colors.primary
+        borderRadius: 18
       }}>{category?.name}</Text>
     });
   }, [categoryId]);

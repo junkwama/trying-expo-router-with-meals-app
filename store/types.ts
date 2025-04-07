@@ -4,7 +4,6 @@ export interface Category {
   name: string;
   description: string;
   image_url: string;
-  bg_color: string;
 }
 
 export interface NutritionalInformation {
