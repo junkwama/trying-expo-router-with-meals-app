@@ -17,7 +17,7 @@ export default ({ style, onLike, onShare, size = 24 }: LikeShareBtnsTtype) => {
         name="share-outline"
         onPress={onLike}
         size={size}
-        style={[styles.icon, { marginEnd: 8 }]}
+        style={[styles.icon, { marginEnd: 6 }]}
       />
       <MyIcon
         name="heart-outline"

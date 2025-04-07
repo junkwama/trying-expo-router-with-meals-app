@@ -31,7 +31,7 @@ const CategoriesHomeScreen = () => {
         </View>
       </ScrollView>
     </View>
-  ); 
+  );
 };
 
 export default CategoriesHomeScreen;
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 25,
     height: 25
   },
-  
+
   container: {
     flex: 1,
     padding: sizes.padding

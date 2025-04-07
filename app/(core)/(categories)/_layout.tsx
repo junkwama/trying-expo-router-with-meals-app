@@ -6,13 +6,12 @@ export default function MealsCategoriesStackLayout() {
     <Stack>
       <Stack.Screen name="categories" options={{
         title: "Categories of meals",
-        // headerTintColor: "white",
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor: Colors.primary
         }
-      }}/>
-      <Stack.Screen name="meals" options={{ headerShown: false }}/>
+      }} />
+      <Stack.Screen name="meals" options={{ headerShown: false }} />
     </Stack>
   );
 }

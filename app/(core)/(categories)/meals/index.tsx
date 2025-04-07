@@ -4,6 +4,7 @@ import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useContext, useEffect } from "react";
 import sizes from "@/constants/sizes";
+import LikeShareBtns from "@/components/LikeShareBtns";
 
 const MealsOverviewRoute = () => {
 
@@ -18,6 +19,8 @@ const MealsOverviewRoute = () => {
 
   useEffect(() => {
     navigation.setOptions({
+      headerTransparent: true,
+      headerRight: () => <LikeShareBtns size={24} />,
       headerTitle: () => <Text style={{
         backgroundColor: "rgba(256, 256, 256, 0.7)",
         paddingVertical: 6,

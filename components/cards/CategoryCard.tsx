@@ -11,8 +11,6 @@ import { useRouter } from "expo-router";
 import MyIcon from "../ui/MyIcon";
 import Colors from "@/constants/Colors";
 
-
-
 interface categoryCardProps extends
   Omit<ViewProps, "id">,
   Category { };
@@ -35,17 +33,17 @@ export default ({ style, id, name, description, image_url }: categoryCardProps) 
           resizeMode="cover"
           style={styles.image}
         />
-       <View style={styles.textBlock}>
+        <View style={styles.textBlock}>
           <Text style={styles.name}>{name}</Text>
           <Text numberOfLines={2} style={styles.description}>{description}</Text>
           <Text style={styles.detailBtn}>
-            Details <MyIcon 
+            Details <MyIcon
               size={12}
               name="chevron-forward-outline"
-              style={{ marginStart: 4}}
+              style={{ marginStart: 4 }}
             />
           </Text>
-       </View>
+        </View>
       </Pressable>
     </View>
   );
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: "100%",
   },
-  textBlock:{
+  textBlock: {
     flex: 1,
     justifyContent: "center",
     paddingStart: 20
