@@ -1,4 +1,4 @@
 export default {
-  gap: 20,
+  padding: 24,
   cardHeight: 200,
 };

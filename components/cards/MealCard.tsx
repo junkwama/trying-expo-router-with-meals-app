@@ -56,7 +56,7 @@ export default ({
         <View style={styles.textBlock}>
           <Text numberOfLines={2} style={styles.name}>{name}</Text>
           <Text style={styles.nutrition_informations}>
-            {`${calories} cal, ${fat} fat, ${protein} pro`}
+            {`${calories} cal, ${fat} fat, ${protein} protein`}
           </Text>
         </View>
       </Pressable>
@@ -77,14 +77,14 @@ const styles = StyleSheet.create({
     // ---
     flex: 1,
     backgroundColor: "white",
-    borderRadius: 24,
+    borderRadius: 20,
     overflow: "hidden"
   },
   pressable: {
     flex: 1,
   },
   imageBlock: {
-    height: 100,
+    height: 120,
     padding: 12,
     justifyContent: "space-between",
     alignItems: "flex-start"

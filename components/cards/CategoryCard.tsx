@@ -7,7 +7,9 @@ import {
   StyleSheet,
   Pressable,
   ImageBackground,
-  ViewStyle
+  ViewStyle,
+  Image,
+  ImageBackgroundBase
 } from "react-native";
 import { useRouter } from "expo-router";
 import sizes from "@/constants/sizes";
@@ -16,46 +18,45 @@ import sizes from "@/constants/sizes";
 
 interface categoryCardProps extends
   Omit<ViewProps, "id">,
-  Omit<Category, "description"> {
-  innerStyle: ViewStyle
-};
+  Omit<Category, "description"> { };
 
-export default ({ style, innerStyle, id, name, image_url, bg_color }: categoryCardProps) => {
+export default ({ style, id, name, image_url, bg_color }: categoryCardProps) => {
 
   const router = useRouter();
   const opPress = () => {
-    router.push(`/meals?category=${id}`)
+    router.push(`/meals?categoryId=${id}`)
   };
 
   return (
     <View style={[styles.outerContainer, style]}>
-      <ImageBackground
-        source={{ uri: image_url }}
-        resizeMode="cover"
-        style={[styles.innerBgImageContainer, innerStyle]}
+      <Pressable
+        onPress={opPress}
+        style={styles.innerContainer}
+        android_ripple={{ color: bg_color }}
       >
-        <LinearGradient
-          colors={["transparent", bg_color]}
-          style={{ flex: 1 }}
+        <ImageBackground
+          source={{ uri: image_url }}
+          resizeMode="cover"
+          style={[styles.bgImg, { backgroundColor: bg_color }]}
+          imageStyle={{ marginStart: "20%" }}
         >
-          <Pressable
-            onPress={opPress}
-            style={styles.pressable}
-            android_ripple={{ color: bg_color }}
+          <LinearGradient
+            colors={["transparent", bg_color]}
+            style={styles.innerContainer}
           >
             <Text style={styles.name}>{name}</Text>
-          </Pressable>
-        </LinearGradient>
-      </ImageBackground>
-    </View>
+          </LinearGradient>
+        </ImageBackground>
+      </Pressable>
+    </View >
   );
 };
 
 const styles = StyleSheet.create({
   outerContainer: {
-    height: sizes.cardHeight
+    height: 150
   },
-  innerBgImageContainer: {
+  innerContainer: {
     elevation: 5,
     shadowColor: "black",
     shadowOffset: {
@@ -66,13 +67,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     // ---
     flex: 1,
-    borderRadius: sizes.gap,
+    borderRadius: 16,
     overflow: "hidden"
   },
-  pressable: {
-    flex: 1,
-    justifyContent: "flex-end",
-    padding: sizes.gap
+  bgImg: {
+    flex: 1
   },
   name: {
     fontWeight: "bold",

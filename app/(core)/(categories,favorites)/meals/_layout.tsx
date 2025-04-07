@@ -1,4 +1,7 @@
+import LikeShareBtns from "@/components/LikeShareBtns";
+import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { Stack, useSegments } from "expo-router";
+import { useContext } from "react";
 
 export const unstable_settings = {
   initialRouteName: "categories",
@@ -13,17 +16,24 @@ export default function MealsStackLayout() {
   const isInCategoriesTab = segments.some(seg => seg === "(categories)");
 
   if (isInCategoriesTab) {
+
     return (
       <Stack>
-        <Stack.Screen name="index" options={{ title: "Cat's Meals list" }} />
-        <Stack.Screen name="[mealId]" options={{ title: "Meal Details" }} />
+        <Stack.Screen
+          name="index"
+          options={({ route }) => ({
+            headerTransparent: true,
+            headerRight: () => <LikeShareBtns size={24} />
+          })}
+        />
+        <Stack.Screen name="[mealId]" options={{ presentation: "modal", title: "Meal Details" }} />
       </Stack>
     );
   }
 
   return (
     <Stack>
-      <Stack.Screen name="[mealId]" options={{ title: "Meal Details" }} />
+      <Stack.Screen name="[mealId]" options={{ presentation: "modal", title: "Meal Details" }} />
     </Stack>
   );
 } 

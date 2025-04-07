@@ -38,7 +38,7 @@ export default {
       name: "Desserts",
       description: "Sweet treats to end your meal on a high note.",
       image_url:
-        "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1543255006-d6395b6f1171?q=80&w=500",
       bg_color: "#CFFFE5",
     },
     {

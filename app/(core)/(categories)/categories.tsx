@@ -15,14 +15,6 @@ const CategoriesHomeScreen = () => {
         <View style={styles.cateroriesList}>
           {categories.categories.map((category, catIndex) => {
 
-            const mp = sizes.gap / 2;
-            let lystingStyle = {
-              ...(catIndex % 2 === 0
-                ? { paddingEnd: mp }
-                : { paddingStart: mp }
-              )
-            }
-
             return (
               <CategoryCard
                 key={category.id}
@@ -30,8 +22,7 @@ const CategoriesHomeScreen = () => {
                 name={category.name}
                 image_url={category.image_url}
                 bg_color={category.bg_color}
-                style={[styles.category, lystingStyle]}
-                innerStyle={styles.innerCategory}
+                style={styles.category}
               />
             );
           })}
@@ -46,19 +37,12 @@ export default CategoriesHomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: sizes.padding
   },
   cateroriesList: {
     flex: 1,
-    padding: sizes.gap,
-    flexDirection: "row",
-    flexWrap: "wrap"
   },
   category: {
-    width: "50%",
-    paddingBottom: sizes.gap
-  },
-  innerCategory: {
-    borderWidth: .2,
-    borderColor: "gray"
+    paddingBottom: 12
   }
 });
