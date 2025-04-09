@@ -1,21 +1,19 @@
-import MealsOverviewScreen from "@/components/screens/MealsOverviewScreen";
-import { Image, StyleSheet, View, Text, ScrollView } from "react-native";
-import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useContext, useEffect } from "react";
-import sizes from "@/constants/sizes";
+import { MealsCtx } from "@/store/ctx/mealsCtx";
+import { Image, StyleSheet, View, Text, ScrollView } from "react-native";
+import MealsOverviewScreen from "@/components/screens/MealsOverviewScreen";
 import LikeShareBtns from "@/components/LikeShareBtns";
+import sizes from "@/constants/sizes";
 
 const MealsOverviewRoute = () => {
 
   const navigation = useNavigation();
-  const { categories } = useContext(MealsCtx);
-  let { categoryId } = useLocalSearchParams();
 
-  categoryId = categoryId?.[0] || categoryId;
-  const category = categories.find(cat => {
-    return cat.id.toString() === categoryId;
-  });
+  const { categoryId } = useLocalSearchParams();
+  const { meals, categories, toggleMealIsFavorite } = useContext(MealsCtx);
+  const category = categories.find(cat => cat.id.toString() === categoryId);
+  const categoryMeals = meals.filter(meal => meal.category_id === category?.id);
 
   useEffect(() => {
     navigation.setOptions({
@@ -34,7 +32,7 @@ const MealsOverviewRoute = () => {
   return (
     <ScrollView style={styles.container}>
 
-      <View style={styles.catBlock}>
+      <View>
         <Image
           source={{ uri: category?.image_url }}
           resizeMode="cover"
@@ -47,7 +45,10 @@ const MealsOverviewRoute = () => {
       </View>
 
       <View style={styles.mealsBlock}>
-        <MealsOverviewScreen />
+        <MealsOverviewScreen
+          meals={categoryMeals}
+          toggleMealIsFavorite={toggleMealIsFavorite}
+        />
       </View>
     </ScrollView>
   );
@@ -58,9 +59,6 @@ export default MealsOverviewRoute;
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  catBlock: {
-
   },
   catImg: {
     height: 220

@@ -1,21 +1,15 @@
-import { MealsCtx } from "@/store/ctx/mealsCtx";
-import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
+import { Meal } from "@/store/types";
 import MealCard from "../cards/MealCard";
 
-const CategoriesHomeScreen = () => {
-
-  const { meals, categories } = useContext(MealsCtx);
-
+const CategoriesHomeScreen = (
+  { meals, toggleMealIsFavorite }:
+    { meals: Meal[], toggleMealIsFavorite: (mealId: number) => void }
+) => {
   return (
     <View style={styles.container}>
       <View style={styles.mealsList}>
         {meals.map((meal, index) => {
-
-          const category = categories.find(category => {
-            return category.id === meal.category_id;
-          });
-
           return (
             <View
               key={meal.id}
@@ -27,10 +21,11 @@ const CategoriesHomeScreen = () => {
               <MealCard
                 id={meal.id}
                 name={meal.name}
-                style={styles.meal}
                 image_url={meal.image_url}
-                category={category?.name || ""}
+                category={meal.category}
+                isFavorite={meal.isFavorite}
                 nutritional_information={meal.nutritional_information}
+                toggleMealIsFavorite={toggleMealIsFavorite}
               />
             </View>
           );
@@ -53,8 +48,5 @@ const styles = StyleSheet.create({
   mealWrapper: {
     marginBottom: 12,
     width: "50%"
-  },
-  meal: {
-
-  },
+  }
 });

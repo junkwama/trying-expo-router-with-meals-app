@@ -13,8 +13,11 @@ import Colors from "@/constants/Colors";
 
 interface mealCardProps extends
   Omit<ViewProps, "id">,
-  Pick<Meal, "id" | "name" | "image_url" | "nutritional_information"> {
-  category: string;
+  Omit<
+    Meal, "recipe_source" | "cooking_instructions" |
+    "category_id" | "description"
+  > {
+  toggleMealIsFavorite: (mealId: number) => void
 };
 
 export default ({
@@ -23,12 +26,19 @@ export default ({
   category,
   name,
   image_url,
-  nutritional_information
+  nutritional_information,
+  isFavorite,
+  toggleMealIsFavorite
 }: mealCardProps) => {
 
   const router = useRouter();
+
   const opPress = () => {
     router.push(`/meals/${id}`)
+  };
+
+  const toggleThisMealIsFav = () => {
+    toggleMealIsFavorite(id);
   };
 
   const { calories, fat, protein } = nutritional_information;
@@ -46,10 +56,11 @@ export default ({
           style={styles.imageBlock}
         >
           <MyIcon
-            name="heart-outline"
+            name={isFavorite ? "heart" : "heart-outline"}
             style={styles.likeBtn}
             size={18}
             color={Colors.primary}
+            onPress={toggleThisMealIsFav}
           />
           <Text style={styles.category}>{category}</Text>
         </ImageBackground>
@@ -114,5 +125,4 @@ const styles = StyleSheet.create({
     fontSize: 11,
     paddingVertical: 4
   }
-
 });

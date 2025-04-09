@@ -1,11 +1,11 @@
 import { createContext, ReactNode, useState } from "react";
-import mealsDB from "../mealsDB";
 import { Category, Meal } from "../types";
+import mealsDB from "../mealsDB";
 
 export interface MealsCtxValueType {
   categories: Category[];
   meals: Meal[];
-  toggleMealIsFav?: (mealId: number) => void;
+  toggleMealIsFavorite: (mealId: number) => void;
   addMeal?: (meal: Meal) => void;
   removeMeal?: (mealId: number) => void;
 }
@@ -16,19 +16,31 @@ interface MealsCtxProviderProps {
 
 const MealsCtxValue: MealsCtxValueType = {
   categories: [],
-  meals: []
+  meals: [],
+  toggleMealIsFavorite: (mealId: number) => { }
 };
 
 export const MealsCtx = createContext<MealsCtxValueType>(MealsCtxValue);
 
 export default function MealsCtxProvider({ children }: MealsCtxProviderProps) {
 
-  const [meals, setMeals] = useState<Meal[]>(mealsDB.meals);
   const [categories, setCategories] = useState<Category[]>(mealsDB.categories);
 
-  const toggleMealIsFav = (mealId: number) => {
-    // toggle favorite logic
-    console.log(`Toggling favorite for meal ${mealId}`);
+  const [meals, setMeals] = useState<Meal[]>(() => mealsDB.meals.map(meal => {
+    const category = categories.find(category => {
+      return category.id === meal.category_id;
+    });
+    return {
+      ...meal,
+      category: category?.name || "",
+      isFavorite: false
+    };
+  }));
+
+  const toggleMealIsFavorite = (mealId: number) => {
+    setMeals(meals => meals.map(meal => meal.id !== mealId ? meal : {
+      ...meal, isFavorite: !meal.isFavorite
+    }));
   };
 
   const addMeal = (meal: Meal) => {
@@ -40,7 +52,7 @@ export default function MealsCtxProvider({ children }: MealsCtxProviderProps) {
   };
 
   return (
-    <MealsCtx.Provider value={{ meals, categories, toggleMealIsFav, addMeal, removeMeal }}>
+    <MealsCtx.Provider value={{ meals, categories, toggleMealIsFavorite, addMeal, removeMeal }}>
       {children}
     </MealsCtx.Provider>
   );

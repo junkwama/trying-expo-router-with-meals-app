@@ -18,7 +18,8 @@ export interface Meal {
   id: number;
   name: string;
   description: string;
-  category_id: number;
+  category: Category["name"];
+  category_id: Category["id"];
   image_url: string;
   nutritional_information: NutritionalInformation;
   recipe_source: {
@@ -29,4 +30,5 @@ export interface Meal {
     stepId: number;
     description: string;
   }>;
+  isFavorite: boolean;
 }

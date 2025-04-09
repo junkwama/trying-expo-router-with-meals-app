@@ -1,5 +1,5 @@
 import CategoryCard from "@/components/cards/CategoryCard";
-import Colors from "@/constants/Colors";
+import TopRoundedDesign from "@/components/TopRoundedDesign";
 import sizes from "@/constants/sizes";
 import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { useContext } from "react";
@@ -11,9 +11,7 @@ const CategoriesHomeScreen = () => {
 
   return (
     <View style={styles.outerContainer}>
-      <View style={styles.designBlock}>
-        <View style={styles.designInnerBlock}></View>
-      </View>
+      <TopRoundedDesign />
       <ScrollView style={styles.container}>
         <View style={styles.cateroriesList}>
           {categories.categories.map(category => {
@@ -40,20 +38,6 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1
   },
-
-  designBlock: {
-    backgroundColor: Colors.primary,
-    justifyContent: "flex-end",
-    height: 25,
-  },
-
-  designInnerBlock: {
-    backgroundColor: "#f2f2f2",
-    borderTopStartRadius: 25,
-    borderTopEndRadius: 25,
-    height: 25
-  },
-
   container: {
     flex: 1,
     padding: sizes.padding
