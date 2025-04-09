@@ -46,7 +46,7 @@ const MealDeatailsRoute = () => {
         <View style={styles.nameBlock}>
           <Text style={styles.name}>{meal.name}</Text>
           <Text style={styles.calDetails}>
-            <MyIcon size={16} name="bonfire-outline" style={{ marginEnd: 4 }} />
+            <MyIcon size={16} name="flame" />
             <Text> {nitInfos.calories} Kcal.</Text>
           </Text>
         </View>

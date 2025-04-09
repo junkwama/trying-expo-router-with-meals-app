@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, ViewProps } from "react-native";
 
 
 export default function WrapperCard(
-  { style, title, children }: ViewProps & { title: string; }
+  { style, title, children }: ViewProps & { title?: string; }
 ) {
   return (
     <View style={[styles.container, style]}>
-      <Text style={styles.title}>{title}</Text>
+      {title ? <Text style={styles.title}>{title}</Text> : null}
       <View>{children}</View>
     </View>
   );

@@ -41,9 +41,9 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="menu"
+        name="(menu)"
         options={{
-          title: "Other",
+          title: "Menu",
           tabBarIcon: ({ focused, color }) => <MyIcon
             name={focused ? "menu" : "menu-outline"}
             color={color}
