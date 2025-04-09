@@ -1,6 +1,6 @@
+import { Tabs } from "expo-router";
 import MyIcon from "@/components/ui/MyIcon";
 import Colors from "@/constants/Colors";
-import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (

@@ -5,7 +5,7 @@ export default function MealsCategoriesStackLayout() {
   return (
     <Stack>
       <Stack.Screen name="categories" options={{
-        title: "Categories of meals",
+        title: "Categories Of Meals",
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor: Colors.primary

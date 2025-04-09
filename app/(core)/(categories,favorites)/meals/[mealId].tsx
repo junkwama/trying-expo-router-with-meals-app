@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground, ScrollView, Pressable } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useContext, useEffect } from "react";
 import { MealsCtx } from "@/store/ctx/mealsCtx";
@@ -7,6 +7,7 @@ import MyIcon from "@/components/ui/MyIcon";
 import StepCard from "@/components/cards/StepCard";
 import WrapperCard from "@/components/cards/WrapperCard";
 import LikeShareBtns from "@/components/LikeShareBtns";
+import MyButton from "@/components/ui/MyButton";
 
 const MealDeatailsRoute = () => {
 
@@ -75,10 +76,12 @@ const MealDeatailsRoute = () => {
       </ScrollView>
 
       <View style={styles.likeBtnWrapper}>
-        <Pressable style={styles.likeBtn}>
-          <Text style={styles.likeBtnText}>Ma favorite</Text>
-          <MyIcon color="white" name="heart-outline" />
-        </Pressable>
+        <MyButton
+          style={styles.likeBtn}
+          lableStyle={styles.likeBtnText}
+          iconName="heart-outline"
+          title="Ma favorite"
+        />
       </View>
 
     </View>
@@ -130,16 +133,13 @@ const styles = StyleSheet.create({
   },
   likeBtnWrapper: {
     padding: 24,
-    paddingTop: 16,
-    backgroundColor: "transparent"
+    paddingTop: 16
   },
   likeBtn: {
     backgroundColor: Colors.primary,
     paddingVertical: 12,
     paddingHorizontal: 24,
-    borderRadius: 20,
-    flexDirection: "row",
-    justifyContent: "space-between"
+    borderRadius: 20
   },
   likeBtnText: {
     color: "white",

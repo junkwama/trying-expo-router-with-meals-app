@@ -6,7 +6,7 @@ export default function MealsCategoriesStackLayout() {
     <Stack>
       <Stack.Screen name="favorites" options={{
         headerStyle: { backgroundColor: Colors.primary },
-        title: "Favorite meals",
+        title: "Your Favorite Meals",
         headerShadowVisible: false
       }} />
       <Stack.Screen name="meals" options={{ headerShown: false }} />

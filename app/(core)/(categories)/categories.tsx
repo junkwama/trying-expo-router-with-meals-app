@@ -1,20 +1,20 @@
 import CategoryCard from "@/components/cards/CategoryCard";
 import TopRoundedDesign from "@/components/TopRoundedDesign";
-import sizes from "@/constants/sizes";
-import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { useContext } from "react";
+import { MealsCtx } from "@/store/ctx/mealsCtx";
 import { View, StyleSheet, ScrollView } from "react-native";
+import sizes from "@/constants/sizes";
 
 const CategoriesHomeScreen = () => {
 
-  const categories = useContext(MealsCtx);
+  const { categories } = useContext(MealsCtx);
 
   return (
     <View style={styles.outerContainer}>
       <TopRoundedDesign />
       <ScrollView style={styles.container}>
         <View style={styles.cateroriesList}>
-          {categories.categories.map(category => {
+          {categories.map(category => {
             return (
               <CategoryCard
                 key={category.id}
